@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Pascal's Triangle"""
 
 def pascal_triangle(n): #Time complexity: O(n ^ 2) | Space complexity: O(n ^ 2)
   """Creates a Pascal's Triangle of height n"""
