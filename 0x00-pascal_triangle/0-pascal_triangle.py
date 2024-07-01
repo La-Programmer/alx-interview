@@ -23,6 +23,6 @@ def create_rows(array): #Time complexity: O(n) | Space complexity: O(n)
 			result.append(array[i])
 		else:
 			result.append(array[i] + array[i - 1])
-		result.append(array[i])
+	result.append(array[i])
 
 	return result
