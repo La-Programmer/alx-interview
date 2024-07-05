@@ -6,6 +6,8 @@ from queue import Queue
 
 def canUnlockAll(boxes):
     """Function to check if all boxes can be unlocked"""
+    if (boxes == [] or boxes is None):
+        return True
     all_keys = {x for x in range(len(boxes))}
     visited_boxes = set()
     boxes_to_visit = Queue(maxsize=len(boxes))
