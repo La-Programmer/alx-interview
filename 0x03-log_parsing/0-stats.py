@@ -76,8 +76,10 @@ def print_stats(total_file_size: int,
                 no_by_status_code: dict) -> None:
     """Print out the current computed stats"""
     print(f'File size: {total_file_size}')
-    for key, value in no_by_status_code.items():
-        print(f'{key}: {value}')
+    status_codes: List[int] = [200, 301, 400, 401, 403, 404, 405, 500]
+    for key in status_codes:
+        if key in no_by_status_code.keys():
+            print(f'{key}: {no_by_status_code[key]}')
 
 
 def handler(signum, frame):
