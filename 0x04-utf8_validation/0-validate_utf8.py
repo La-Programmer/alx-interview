@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Check for valid UTF-8 code point"""
 
 from typing import List
