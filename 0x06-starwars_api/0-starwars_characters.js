@@ -23,8 +23,16 @@ async function getCharacters (url) {
   }
 }
 
-const getCharacter = endpoint => new Promise(resolve => {
-  console.log(resolve.name);
+const getCharacter = endpoint => new Promise((resolve, reject) => {
+  const response = request(endpoint, (error, response, body) => {
+    if (error) {
+      reject(error);
+    } else {
+      resolve(body);
+    }
+  });
+  const name = JSON.parse(response).name;
+  console.log(name);
 });
 
 const reduceApiEndpoints = async (previous, endpoint) => {
@@ -34,6 +42,6 @@ const reduceApiEndpoints = async (previous, endpoint) => {
 
 getCharacters(url)
   .then(characters => {
-    console.log(characters)
+    // console.log(characters)
     characters.reduce(reduceApiEndpoints, Promise.resolve());
   });
