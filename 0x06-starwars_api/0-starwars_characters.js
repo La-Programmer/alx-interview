@@ -34,7 +34,7 @@ async function getCharacter (endpoint) {
         }
       });
     });
-    const name = JSON.parse(response);
+    const name = JSON.parse(response).name;
     console.log(name);
   } catch (error) {
     console.log(error);
@@ -42,7 +42,6 @@ async function getCharacter (endpoint) {
 }
 
 const reduceApiEndpoints = async (previous, endpoint) => {
-  console.log(endpoint);
   await previous;
   return getCharacter(endpoint);
 };
