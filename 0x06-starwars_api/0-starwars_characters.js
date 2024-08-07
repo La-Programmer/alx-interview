@@ -32,7 +32,7 @@ const getCharacter = endpoint => new Promise((resolve, reject) => {
         resolve(body);
       }
     });
-    const name = JSON.parse(response).name;
+    const name = JSON.parse(response);
     console.log(name);
   } catch (error) {
     console.log(error);
