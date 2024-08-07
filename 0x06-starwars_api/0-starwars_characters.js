@@ -5,7 +5,7 @@ const movieId = process.argv[2];
 const url = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 
 const characters = getCharacters(url);
-
+console.log(characters);
 for (const character in characters) {
   request(character, (error, response, body) => {
     if (error) {
@@ -30,7 +30,7 @@ async function getCharacters (url) {
       });
     });
     const characters = JSON.parse(response).characters;
-    console.log(characters);
+    // console.log(characters);
     return characters;
   } catch (error) {
     console.log(error);
