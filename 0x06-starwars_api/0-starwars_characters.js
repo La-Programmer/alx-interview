@@ -4,20 +4,6 @@ const request = require('request');
 const movieId = process.argv[2];
 const url = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 
-const characters = getCharacters(url);
-console.log(characters);
-for (const character in characters) {
-  request(character, (error, response, body) => {
-    if (error) {
-      console.log(error);
-    } else {
-      const responseBody = JSON.parse(body);
-      const characterName = responseBody.name;
-      console.log(characterName);
-    }
-  });
-}
-
 async function getCharacters (url) {
   try {
     const response = await new Promise((resolve, reject) => {
@@ -36,3 +22,17 @@ async function getCharacters (url) {
     console.log(error);
   }
 }
+
+const getCharacter = endpoint => new Promise(resolve => {
+  console.log(resolve.name);
+});
+
+const reduceApiEndpoints = async (previous, endpoint) => {
+  await previous;
+  return getCharacter(endpoint);
+};
+
+getCharacters(url)
+  .then(characters => {
+    characters.reduce(reduceApiEndpoints, Promise.resolve());
+  });
