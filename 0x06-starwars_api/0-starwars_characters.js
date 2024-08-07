@@ -34,5 +34,6 @@ const reduceApiEndpoints = async (previous, endpoint) => {
 
 getCharacters(url)
   .then(characters => {
+    console.log(characters)
     characters.reduce(reduceApiEndpoints, Promise.resolve());
   });
