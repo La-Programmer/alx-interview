@@ -18,18 +18,17 @@ for (const character in characters) {
   });
 }
 
-function getCharacters (url) {
+async function getCharacters (url) {
   try {
-    const response = request(url, (error, response, body) => {
-      if (error) {
-        console.log(error);
-        return error;
-      } else {
-        return body;
-      }
+    const response = await new Promise((resolve, reject) => {
+      request(url, (error, response, body) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(body);
+        }
+      });
     });
-    const characters = JSON.parse(response).characters;
-    return characters;
   } catch (error) {
     console.log(error);
   }
