@@ -29,6 +29,9 @@ async function getCharacters (url) {
         }
       });
     });
+    const characters = JSON.parse(response).characters;
+    console.log(characters);
+    return characters;
   } catch (error) {
     console.log(error);
   }
