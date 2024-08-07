@@ -40,6 +40,7 @@ const getCharacter = endpoint => new Promise((resolve, reject) => {
 });
 
 const reduceApiEndpoints = async (previous, endpoint) => {
+  console.log(endpoint);
   await previous;
   return getCharacter(endpoint);
 };
