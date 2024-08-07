@@ -23,21 +23,23 @@ async function getCharacters (url) {
   }
 }
 
-const getCharacter = endpoint => new Promise((resolve, reject) => {
+async function getCharacter (endpoint) {
   try {
-    const response = request(endpoint, (error, response, body) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(body);
-      }
+    const response = new Promise((resolve, reject) => {
+      request(endpoint, (error, response, body) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(body);
+        }
+      });
     });
-    const name = JSON.parse(response);
+    const name = JSON.parse(response).name;
     console.log(name);
   } catch (error) {
     console.log(error);
   }
-});
+}
 
 const reduceApiEndpoints = async (previous, endpoint) => {
   console.log(endpoint);
