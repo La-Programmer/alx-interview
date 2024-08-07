@@ -25,7 +25,7 @@ async function getCharacters (url) {
 
 async function getCharacter (endpoint) {
   try {
-    const response = new Promise((resolve, reject) => {
+    const response = await new Promise((resolve, reject) => {
       request(endpoint, (error, response, body) => {
         if (error) {
           reject(error);
@@ -34,7 +34,7 @@ async function getCharacter (endpoint) {
         }
       });
     });
-    const name = JSON.parse(response).name;
+    const name = JSON.parse(response);
     console.log(name);
   } catch (error) {
     console.log(error);
