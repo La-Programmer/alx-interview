@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-from typing import List
-
 
 def makeChange(coins, total):
     dp_array = [total + 2] * (total + 1)
