@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""Implementation of the making change algorithm"""
 
 
 def makeChange(coins, total):
+    """Make change function"""
     dp_array = [total + 2] * (total + 1)
     dp_array[0] = 0
     for coin in coins:
