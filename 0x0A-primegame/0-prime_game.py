@@ -25,14 +25,15 @@ def isWinner(x, nums):
     """
     ben = 0
     maria = 0
-    for i in nums:
-        length_of_primes = get_primes(i)
-        if length_of_primes % 2 == 0:
-            ben += 1
-        else:
-            maria += 1
-    if maria > ben:
-        return "Maria"
-    elif ben > maria:
-        return "Ben"
-    return None
+    if x > 0:
+        for i in nums:
+            length_of_primes = get_primes(i)
+            if length_of_primes % 2 == 0 or length_of_primes == 0:
+                ben += 1
+            else:
+                maria += 1
+        if maria > ben:
+            return "Maria"
+        elif ben > maria:
+            return "Ben"
+        return None
