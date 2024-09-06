@@ -2,6 +2,7 @@
 """PRIME GAME ALGORITHM
 """
 
+
 def get_primes(n):
     """Gets the length of primes
     """
@@ -17,6 +18,7 @@ def get_primes(n):
         if prime not in marked_array:
             primes.append(prime)
     return len(primes)
+
 
 def isWinner(x, nums):
     """Choose a winner between Maria and Ben
